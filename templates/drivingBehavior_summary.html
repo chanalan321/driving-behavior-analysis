@@ -1,0 +1,50 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Show Student Information</title>
+<link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+   <body style="align-items: center;">
+
+      <h2>Driving Behavior Summary</h2>
+      <table border=1 style="margin-left: -9vw;">
+         <thead>
+            <tr>
+               <th>Driver ID</th>
+               <th>Car Plate Number</th>
+               <th>The Cumulative Number Of Times Of Rapidly Speedup</th>
+               <th>The Cumulative Number Of Times Of Rapidly Slowdown</th>
+               <th>The Cumulative Number Of Times Of neutral slide</th>
+               <th>The Total Time Of Neutral Slide (second)</th>
+               <th>The Cumulative Number Of Times Of Overspeed</th>
+               <th>The Total Time Of Overspeed (second)</th>
+               <th>The Cumulative Number Of Times Of Fatigue Driving</th>
+               <th>The Cumulative Number Of Times Of Hthrottle Stop</th>
+               <th>The Cumulative Number Of Times Of Oil Leak</th>
+            </tr>            
+         </thead>
+         <tbody>
+            {% for result in results %}
+            <tr>
+               <td>{{result[0]}}</td>
+               <td>{{result[1]}}</td>
+               <td>{{result[3]}}</td>    
+               <td>{{result[4]}}</td>    
+               <td>{{result[6]}}</td>   
+               <td>{{result[7]}}</td>   
+               <td>{{result[9]}}</td>   
+               <td>{{result[10]}}</td>   
+               <td>{{result[11]}}</td>   
+               <td>{{result[12]}}</td>   
+               <td>{{result[13]}}</td>     
+            </tr>
+         {% endfor %}
+         </tbody>
+         
+      </table>
+
+      <h2><a href = "/">Back Home</a></h2>
+
+
+   </body>
+</html>

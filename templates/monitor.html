@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Real-time Monitoring</title>
+  <script src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+  <script src="http://cdn.hcharts.cn/highstock/highstock.js"></script>
+  <script src="http://cdn.hcharts.cn/highcharts/modules/exporting.js"></script>
+</head>
+<body>
+
+<div id="container" style="min-width:400px;height:400px"></div>
+
+</body>
+
+<script type="text/javascript">
+
+$(function () {
+  $.getJSON('/data?driverID={{ driverID }}', function (data) {
+    var items = [];
+    var speeding = 120;
+    
+    $.each(data, function (i, v) {
+      items.push(v[0]); 
+    });
+
+    // Create the chart
+    $('#container').highcharts('StockChart', {
+      chart: {
+        events: {
+          load: function () {
+            var chart = $('#container').highcharts();
+            var series = chart.series[0];
+            //30 seconds interval
+            setInterval(function () {         
+              $.getJSON("/data?driverID={{ driverID }}", function (res) {
+                var newitems = [];
+                $.each(res, function (i, v) {
+                  if (!items.includes(v[0]) & v[1]>speeding){
+                    alert("You are speeding!");
+                    items.push(v[0]); 
+                  }
+                  series.addPoint(v);
+                });
+              });
+            }, 30000);
+          }
+        }
+      },
+      rangeSelector : {
+        selected : 1
+      },
+      title : {
+        text : 'Real Time Driving Speed of {{ driverID }}'
+      },
+      series : [{
+        name : 'Real-time Speed',
+        data : data,
+        tooltip: {
+          valueDecimals: 2
+        }
+      }]
+    });
+  });
+});
+
+</script>
+</html>
