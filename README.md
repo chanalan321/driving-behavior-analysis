@@ -34,7 +34,15 @@ Considering not having a real-time monitoring device, write.py is used to emulat
   <img src="https://github.com/chanalan321/driving-behavior-analysis/blob/a5cc543b91196c634b589460b511364ce9274cd8/photo/function%201.1.png">
 </p>
 
+<p align="center">
+  <img src="https://github.com/chanalan321/driving-behavior-analysis/blob/88a18da708869d0a82e7005a22e377e2a33ff2cc/photo/function%201.2.png">
+</p>
+
 ## function 2:
 <p align="center">
   <img src="https://github.com/chanalan321/driving-behavior-analysis/blob/a5cc543b91196c634b589460b511364ce9274cd8/photo/function%202.1.png">
+</p>
+
+<p align="center">
+  <img src="https://github.com/chanalan321/driving-behavior-analysis/blob/88a18da708869d0a82e7005a22e377e2a33ff2cc/photo/function%202.2.png">
 </p>
